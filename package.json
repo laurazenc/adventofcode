@@ -1,0 +1,30 @@
+{
+  "name": "adventofcode-2020",
+  "version": "1.0.0",
+  "main": "dist/index.js",
+  "license": "MIT",
+  "dependencies": {
+    "eslint": "^7.14.0",
+    "jest": "^26.6.3",
+    "nodemon": "^2.0.6",
+    "prettier": "^2.2.1",
+    "ts-jest": "^26.4.4",
+    "ts-node": "^9.0.0",
+    "tsc": "^1.20150623.0",
+    "typescript": "^4.1.2"
+  },
+  "scripts": {
+    "copy:assets": "cp src/challenges/13/*.txt dist/challenges/13/",
+    "prebuild": "rimraf dist",
+    "build": "tsc && cp -rf package.json dist/package.json && yarn copy:assets",
+    "prestart": "yarn build",
+    "start": "ts-node .",
+    "predev": "yarn build",
+    "dev": "nodemon --watch src --exec yarn start -e ts,tsx",
+    "test": "jest --env=node --colors --detectOpenHandles"
+  },
+  "devDependencies": {
+    "@types/jest": "^26.0.16",
+    "@types/node": "^14.14.10"
+  }
+}
